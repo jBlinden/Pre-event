@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Manage Events</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+    <body>
+     <div class="container">
+         <h3><div class="alert alert-info"><b>{{name}}</b></div></h3>
+         <p>
+             <h3>Best time: At {{bTime}} on {{bDate}}</h3>
+            <TABLE class="table table-striped">
+                <TR class="info"><td><b>Name</b></td><td><b>Can they come?</b></td></TR>
+            {{#each eventlist}}
+                {{#each Invitees}}
+                        <tr><td>{{iName}}</td><td>{{iPos}}</td></tr>    
+                {{/each}}
+            {{/each}}
+             </TABLE>
+            {{tLeft}}
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" onclick="window.location='UsrEvents'"  class ="btn btn-primary">Back</button>
+                <button type="button" onclick="window.location='EditEvt'"  class ="btn btn-warning">Edit</button>
+                <button type="button" onclick="window.location='/delete?event={{name}}'"class ="btn btn-danger">Delete</button>
+            </div>
+        <script type="text/javascript">
+            var today = new Date();
+            console.log(today);
+            var BigDay = {{bDate}} + " " + {{bTime}};
+            console.log(today);
+            var date=new Date(BigDay);
+            console.log(date);
+            var msPerDay = 24 * 60 * 60 * 1000 ;
+            console.log(msPerDay);
+            var timeLeft = (date.getTime() - today.getTime());
+            console.log(timeLeft);
+            var e_daysLeft = timeLeft / msPerDay;
+            console.log(e_daysLeft);
+            var daysLeft = Math.floor(e_daysLeft);
+            console.log(daysLeft);
+            var e_hrsLeft = (e_daysLeft - daysLeft)*24;
+            console.log(e_hrsLeft);
+            var hrsLeft = Math.floor(e_hrsLeft);
+            console.log(hrsLeft);
+            var minsLeft = Math.floor((e_hrsLeft - hrsLeft)*60);
+            console.log(minsLeft);
+            document.write("There are only<BR> <H4>" + daysLeft + " days " + hrsLeft +" hours and " + minsLeft + " minutes left </H4>");
+        </script>
+    </div>
+    </body>
+
+
+</html>

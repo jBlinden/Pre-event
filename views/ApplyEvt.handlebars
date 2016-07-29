@@ -1,0 +1,27 @@
+
+{{#each eventlist}}
+<h3><div class="alert alert-info"><b>{{eName}}</b></div></h3>
+        <form name = "myForm" role="form" method = "post" action="/annie?eId={{_id}}">
+        <div class="container">
+        <table class="table table-stripped">
+    {{/each}}
+            <tr>
+            <td>Available Dates</td>
+            <td>Available Times</td>
+            <td>Are you Available?</td>   
+            </tr>
+            {{#each eventlist}}
+                {{#each eDay}}
+            <tr>
+            <td><input type="date" name="date1" value = '{{eDates}}' disabled></td>
+            <td><input type = "time" name = "time1" value = '{{eTimes}}' disabled> </td>
+            <td><input type = "checkbox" name = "check{{@index}}"></td>
+            </tr>
+            {{/each}}
+            
+        </table>
+            {{tLeft}}
+            <button type="submit" class="btn btn-default">Submit</button><br><br>
+            <button type="button" onclick="location.href='OthEvents?eId={{_id}}'" class ="btn btn-primary">Back</button></div>
+{{/each}}        
+</form>

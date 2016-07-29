@@ -1,0 +1,69 @@
+<html >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h3><div class="alert alert-info"><b>Create Event</b></div></h3>
+        <form name = "myForm" role="form" onsubmit = "return validateForm()" action="/cEvent" method = "post">
+        <div class="container">
+        <table class="table table-striped" style="width:90%">
+           <tbody>
+            <tr>
+                <td style = "width = 100%">
+                <dev class="form-group">
+                    Event name:<br>
+                    <input type= "text" class="form-control" name="name" required><br>
+            
+                    Event Length:<br>
+                    <input type="number" class="form-control" name="length" required><br>
+                </dev>
+                </td>
+                <td>Invitees:<br>
+                    <input type = "text" class="form-control"  name = "i1" required>
+                    <input type = "text" class="form-control"  name = "i2" >
+                    <input type = "text" class="form-control"  name = "i3" >
+                    <input type = "text" class="form-control"  name = "i4" >    
+                    <input type = "text" class="form-control"  name = "i5" ></td>
+            </tr>
+                <td>
+                <div class="form-group">
+                </td>
+            <tr>
+                <td>
+                Available Dates:<br>
+                1.<input type = "date" name = "date1" required><br>
+                2.<input type = "date" name = "date2" ><br>
+                3.<input type = "date" name = "date3" ><br>
+                4.<input type = "date" name = "date4" ><br>
+                5.<input type = "date" name = "date5" ><br>
+                </td>
+                <td>
+                    Available Times:<br>
+                    1.<input type = "time" name = "time1" required><br>
+                    2.<input type = "time" name = "time2" ><br>
+                    3.<input type = "time" name = "time3" ><br>
+                    4.<input type = "time" name = "time4" ><br>
+                    5.<input type = "time" name = "time5" ><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <button type="submit" onclick="validateForm()" class="btn btn-default">Submit</button>
+                <button type="button" onclick="window.location='UsrEvents'" class ="btn btn-primary">Back</button>
+                </td>
+            </tr>
+           </tbody>
+        </table>
+        </dev>
+        </form>
+        <script>
+        function validateForm() {
+            document.myForm.name.value;
+        }
+        </script>
+    </body>
+</html>

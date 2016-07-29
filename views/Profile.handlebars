@@ -1,0 +1,54 @@
+<html >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+    </head>
+    <body>
+        <h3><div class="alert alert-info"><b>Edit Profile</b></div></h3>
+        <form name = "myForm" role="form" onsubmit = "return validateForm()" action="/edituser" method = "post">
+        <div class="container">
+            {{#each Userinfo}}
+        <table class="table table-striped">
+            <tr>
+                <td>
+                <div class="form-group">
+                    First name:<br>
+                    <input type= "text" class="form-control" name="firstname" value = '{{fName}}' required maxlength="20"><br>
+            
+                    Last name:<br>
+                    <input type="text" class="form-control" name="lastname" value = '{{lName}}' required maxlength="20"><br>
+                </div>
+                </td>
+            </tr>
+                
+                <div class="form-group"> 
+                
+            <tr>
+                <td>
+                    Age:<br>
+                    <input type = "number" class="form-control"  name = age value = '{{Age}}' required maxlength="3"><br>
+                </td>
+            </tr>
+                </div>
+            <tr>
+                <td>
+                Email:<br>
+                <input type="text" class="form-control" name="email" size="10" value = '{{Email}}' disabled><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <button type="submit" onclick="validateForm()" class="btn btn-default">Update</button>
+                <button type="button" onclick="window.location='Notification'" style="text-align: left"class ="btn btn-primary">Back</button>
+                </td>
+            </tr>
+        </table>
+            {{/each}}
+        </div>
+        </form>
+    </body>
+</html>
